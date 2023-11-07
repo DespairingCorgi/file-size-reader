@@ -5,8 +5,9 @@ def convert_readable(bytes, decimal=2):
     num_units = len(units)-1
     tmp = bytes
     for i,b in enumerate(units):
-        if tmp//(1024**(num_units-i)):
-            storage = float(bytes)/float(1024**(num_units-i))
+        curunit = num_units-i
+        if tmp//(1024**curunit):
+            storage = float(bytes)/float(1024**curunit)
             storage = round(storage, decimal)
             return f"{storage}{b}"
     return "0B"
@@ -36,11 +37,11 @@ def get_total_size (paths, decimal=2):
     return convert_readable(b, decimal)
 
 ###########example###############
-import glob
-jss = glob.glob("*.json")
+# import glob
+# jss = glob.glob("*.json")
 
-for js in jss:
-    redable_byte = get_file_size(js)
-    print(js, redable_byte)
+# for js in jss:
+#     redable_byte = get_file_size(js)
+#     print(js, redable_byte)
 
-get_total_size(jss)
+# get_total_size(jss)
