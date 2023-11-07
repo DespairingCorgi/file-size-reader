@@ -6,7 +6,7 @@ def convert_readable(bytes, decimal=2):
     tmp = bytes
     for i,b in enumerate(units):
         if tmp//(1024**(num_units-i)):
-            storage = float(bytes)/float(1024**i)
+            storage = float(bytes)/float(1024**(num_units-i))
             storage = round(storage, decimal)
             return f"{storage}{b}"
     return "0B"
