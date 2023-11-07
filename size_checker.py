@@ -29,6 +29,12 @@ def get_file_size(path, decimal=2):
     readable_size = convert_readable(size, decimal)
     return readable_size
 
+def get_total_size (paths, decimal=2):
+    b = 0
+    for p in paths:
+        b+=get_byte_size(p)
+    return convert_readable(b, decimal)
+
 ###########example###############
 import glob
 jss = glob.glob("*.json")
@@ -36,4 +42,5 @@ jss = glob.glob("*.json")
 for js in jss:
     redable_byte = get_file_size(js)
     print(js, redable_byte)
-    
+
+get_total_size(jss)
