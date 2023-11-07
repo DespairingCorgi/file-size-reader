@@ -1,10 +1,11 @@
 import os
 
-
 def convert_readable(bytes, decimal=2):
+    units = ['TB', 'GB', 'MB', 'KB', 'B']
+    num_units = len(units)-1
     tmp = bytes
-    for i,b in enumerate(['TB', 'GB', 'MB', 'KB', 'B']):
-        if tmp//(1024**(4-i)):
+    for i,b in enumerate(units):
+        if tmp//(1024**(num_units-i)):
             storage = float(bytes)/float(1024**i)
             storage = round(storage, decimal)
             return f"{storage}{b}"
