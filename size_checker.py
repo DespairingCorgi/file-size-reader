@@ -37,11 +37,11 @@ def get_total_size (paths, decimal=2):
     return convert_readable(b, decimal)
 
 ###########example###############
-import glob
-jss = glob.glob("*.json")
+# import glob
+# jss = glob.glob("*.json")
 
-for js in jss:
-    redable_byte = get_file_size(js)
-    print(js, redable_byte)
+# for js in jss:
+#     redable_byte = get_file_size(js)
+#     print(js, redable_byte)
 
-get_total_size(jss)
+# get_total_size(jss)
